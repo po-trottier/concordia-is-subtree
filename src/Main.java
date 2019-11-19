@@ -24,9 +24,9 @@ public class Main {
 
   public static void main(String[] args) {
     // Initialize a Demo Tree to test the algorithm
-    Node tree = createDemoTree();
-    Node subtree = createDemoSubtree();
-    Node notSubtree = createDemoNotSubtree();
+    Tree tree = createDemoTree();
+    Tree subtree = createDemoSubtree();
+    Tree notSubtree = createDemoNotSubtree();
 
     // Make sure the tree corresponds to the Demo Tree
     printTrees(tree, subtree, notSubtree);
@@ -36,19 +36,19 @@ public class Main {
     runTest(tree, notSubtree, false);
   }
 
-  private static Node createDemoTree() {
-    Node head, n1, n2, n3, n4, n5, n6, n7, n8, n9;
+  private static Tree createDemoTree() {
+    Tree head, n1, n2, n3, n4, n5, n6, n7, n8, n9;
 
-    head = new Node(1);
-    n1 = new Node(4);
-    n2 = new Node(7);
-    n3 = new Node(2);
-    n4 = new Node(6);
-    n5 = new Node(8);
-    n6 = new Node(9);
-    n7 = new Node(3);
-    n8 = new Node(5);
-    n9 = new Node(0);
+    head = new Tree(1);
+    n1 = new Tree(4);
+    n2 = new Tree(7);
+    n3 = new Tree(2);
+    n4 = new Tree(6);
+    n5 = new Tree(8);
+    n6 = new Tree(9);
+    n7 = new Tree(3);
+    n8 = new Tree(5);
+    n9 = new Tree(0);
 
     n7.addChild(n8);
     n7.addChild(n9);
@@ -66,12 +66,12 @@ public class Main {
     return head;
   }
 
-  private static Node createDemoSubtree() {
-    Node head, n1, n2;
+  private static Tree createDemoSubtree() {
+    Tree head, n1, n2;
 
-    head = new Node(7);
-    n1 = new Node(9);
-    n2 = new Node(3);
+    head = new Tree(7);
+    n1 = new Tree(9);
+    n2 = new Tree(3);
 
     head.addChild(n1);
     head.addChild(n2);
@@ -79,14 +79,14 @@ public class Main {
     return head;
   }
 
-  private static Node createDemoNotSubtree() {
-    Node head, n1, n2, n3, n4;
+  private static Tree createDemoNotSubtree() {
+    Tree head, n1, n2, n3, n4;
 
-    head = new Node(7);
-    n1 = new Node(9);
-    n2 = new Node(3);
-    n3 = new Node(5);
-    n4 = new Node(4);
+    head = new Tree(7);
+    n1 = new Tree(9);
+    n2 = new Tree(3);
+    n3 = new Tree(5);
+    n4 = new Tree(4);
 
     n2.addChild(n3);
     n2.addChild(n4);
@@ -97,7 +97,7 @@ public class Main {
     return head;
   }
 
-  private static void printTrees(Node tree, Node subtree, Node notSubtree) {
+  private static void printTrees(Tree tree, Tree subtree, Tree notSubtree) {
     System.out.println("Tree:");
     System.out.println(tree.toString());
     System.out.println("Subtree:");
@@ -106,7 +106,7 @@ public class Main {
     System.out.println(notSubtree.toString());
   }
 
-  private static void runTest(Node bigTree, Node smallTree, boolean expected) {
+  private static void runTest(Tree bigTree, Tree smallTree, boolean expected) {
     boolean result = bigTree.hasSubtree(smallTree);
     System.out.println("");
     System.out.println("Expected: " + expected);
