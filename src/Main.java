@@ -80,11 +80,16 @@ public class Main {
   }
 
   private static Node createDemoNotSubtree() {
-    Node head, n1, n2;
+    Node head, n1, n2, n3, n4;
 
-    head = new Node(1);
-    n1 = new Node(8);
-    n2 = new Node(9);
+    head = new Node(7);
+    n1 = new Node(9);
+    n2 = new Node(3);
+    n3 = new Node(5);
+    n4 = new Node(4);
+
+    n2.addChild(n3);
+    n2.addChild(n4);
 
     head.addChild(n1);
     head.addChild(n2);
@@ -102,8 +107,10 @@ public class Main {
   }
 
   private static void runTest(Node bigTree, Node smallTree, boolean expected) {
+    boolean result = bigTree.hasSubtree(smallTree);
     System.out.println("");
     System.out.println("Expected: " + expected);
-    System.out.println("Actual: " + bigTree.hasSubtree(smallTree));
+    System.out.println("Actual: " + result);
+    System.out.println((result == expected) ? "RESULTS MATCH!" : "ERROR... ACTUAL DOES NOT MATCH EXPECTED.");
   }
 }

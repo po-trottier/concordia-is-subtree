@@ -27,10 +27,12 @@ public class Node {
 
   public boolean hasSubtree(Node subtree) {
     if (this.value == subtree.value) {
-      boolean match = true;
       for (int i = 0; i < this.children.size(); i++) {
+        if (!subtree.children.get(i).isLeaf()) {
+          return this.children.get(i).hasSubtree(subtree.children.get(i));
+        }
         if (this.children.get(i).value != subtree.children.get(i).value)
-          return false;
+            return false;
       }
       return this.children.size() == subtree.children.size();
     } else if (!this.isLeaf()) {
